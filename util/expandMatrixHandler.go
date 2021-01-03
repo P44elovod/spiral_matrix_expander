@@ -9,7 +9,7 @@ import (
 func ExpandSquareMatrix(sourceSlice [][]int) ([]int, error) {
 	if isMatrixSquare(sourceSlice) {
 
-		return expandMatrixClockwise(sourceSlice), nil
+		return expandMatrixClockwise(sourceSlice), nil // usually, we return an error here. so it'd be better to invert the condition
 
 	}
 	return nil, errors.New("Matrix is not square!")
@@ -43,7 +43,7 @@ func expandMatrixClockwise(sourceSlice [][]int) []int {
 		}
 		sourceSlice = sourceSlice[1:]
 
-		sort.Slice(sourceSlice, func(i, j int) bool {
+		sort.Slice(sourceSlice, func(i, j int) bool { // what does this operation do? plase refer to https://golang.org/pkg/sort/#Slice
 			return true
 		})
 
